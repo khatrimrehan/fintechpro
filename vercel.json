@@ -6,7 +6,7 @@
             "permanent": false
         },
         {
-            "source": "../pages/dashboard.html",
+            "source": "/pages/dashboard.html",
             "destination": "/dashboard",
             "permanent": false
         }
@@ -18,7 +18,7 @@
         },
         {
             "source": "/dashboard",
-            "destination": "../pages/dashboard.html"
+            "destination": "/pages/dashboard.html"
         }
     ]
 }
