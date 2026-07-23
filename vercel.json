@@ -8,7 +8,7 @@
   ],
   "rewrites": [
     {
-      "source": "/login",
+      "source": "/login-signup",
       "destination": "/index.html"
     }
   ]
