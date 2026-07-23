@@ -2,13 +2,13 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/login-signup",
+      "destination": "/loginSignup",
       "permanent": false
     }
   ],
   "rewrites": [
     {
-      "source": "/login-signup",
+      "source": "/loginSignup",
       "destination": "/index.html"
     }
   ]
