@@ -1,12 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assests/fin_logo.png" type="image/x-icon">
-    <title>Fintech Pro / Dashboard</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="dashbrd.css">
+ <link rel="shortcut icon" href="../assests/fin_logo.png" type="image/x-icon">
+ <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+ <title>Fintech Pro / Dashboard</title>
 </head>
+
 <body>
-    <h1>Fintech Pro</h1>
+ <div class="dashboard">
+  <div class="menu">
+   <div class="logo">
+    <div class="icon">
+     <img src="../assests/fin_logo.png" alt="">
+    </div>
+    <div class="logoname">
+     <div class="lineup">FinTrack Pro</div>
+     <div class="linedown">Enterprise Finance</div>
+    </div>
+   </div>
+   <div class="menu-list">
+    <div class="slider"></div>
+
+    <div class="lone" id="dash">
+     <div class="icn"><i class="ri-dashboard-horizontal-fill"></i></div>
+     <div class="icn-name">Dashboard</div>
+    </div>
+
+    <div class="lone" id="setting">
+     <div class="icn"><i class="ri-settings-5-fill"></i></div>
+     <div class="icn-name">Settings</div>
+    </div>
+
+
+
+
+   </div>
+   <div class="addtrans">
+    <div class="plus">
+     <i class="ri-add-line"></i>
+    </div>
+    <div class="addtranstitle">
+     Add Transations
+    </div>
+   </div>
+
+  </div>
+
+  <div class="main">
+   <!-- <img src="../assests/min_bg.jpg" alt=""> -->
+
+
+   <header class="topbar">
+
+    <div class="headtitle">
+     Financial Overview
+    </div>
+
+    <div class="search-box">
+     <i class="ri-search-line"></i>
+     <input type="text" placeholder="Search transactions...">
+    </div>
+
+    <div class="profile-card">
+
+     <div class="profile">
+      <img src="https://i.pravatar.cc/150?img=12" alt="">
+      <span>RK</span>
+     </div>
+
+     <button>
+      <i class="ri-logout-box-r-line"></i>
+     </button>
+
+    </div>
+
+   </header>
+
+   <div class="dashboard-grid">
+
+    <div class="cards">
+
+     <div class="card">
+      <div class="head">
+       <div class="icon blue">
+        <i class="ri-wallet-3-line"></i>
+       </div>
+       <span>Current Balance</span>
+      </div>
+
+      <h1>$4,500.00</h1>
+     </div>
+
+     <div class="card">
+      <div class="head">
+       <div class="icon green">
+        <i class="ri-arrow-right-up-line"></i>
+       </div>
+       <span>Total Income</span>
+      </div>
+
+      <h1>$12,300.00</h1>
+     </div>
+
+     <div class="card">
+      <div class="head">
+       <div class="icon red">
+        <i class="ri-arrow-right-line"></i>
+       </div>
+       <span>Total Expense</span>
+      </div>
+
+      <h1>$7,800.00</h1>
+     </div>
+
+     <div class="card">
+      <div class="head">
+       <div class="icon blue">
+        <i class="ri-bar-chart-box-line"></i>
+       </div>
+       <span>Total Transactions</span>
+      </div>
+
+      <h1>45</h1>
+     </div>
+
+    </div>
+
+    <div class="chart-card">
+
+     <h2>Cash Flow Analysis</h2>
+
+     <div class="legend">
+
+      <div>
+       <span class="dot income"></span>
+       Income
+      </div>
+
+      <div>
+       <span class="dot expense"></span>
+       Expenses
+      </div>
+
+     </div>
+
+     <canvas id="chart"></canvas>
+
+    </div>
+
+   </div>
+
+   <section class="transactions">
+
+    <h2>Recent Transactions</h2>
+
+    <div class="transaction-list">
+
+        <div class="transaction">
+
+            <div class="item">
+                <span>Date</span>
+                <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+                <span>Description</span>
+                <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+                <span>Category</span>
+                <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+                <span>Amount</span>
+                <p>$4,500.00</p>
+            </div>
+
+            <div class="action">
+                <a href="#">Actions</a>
+                <i class="ri-more-2-fill"></i>
+            </div>
+
+        </div>
+
+        <div class="transaction">
+
+            <div class="item">
+                <span>Date</span>
+                <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+                <span>Description</span>
+                <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+                <span>Category</span>
+                <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+                <span>Amount</span>
+                <p>$4,500.00</p>
+            </div>
+
+            <div class="action">
+                <a href="#">Actions</a>
+                <i class="ri-more-2-fill"></i>
+            </div>
+
+        </div>
+         <div class="transaction">
+
+            <div class="item">
+                <span>Date</span>
+                <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+                <span>Description</span>
+                <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+                <span>Category</span>
+                <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+                <span>Amount</span>
+                <p>$4,500.00</p>
+            </div>
+
+            <div class="action">
+                <a href="#">Actions</a>
+                <i class="ri-more-2-fill"></i>
+            </div>
+
+        </div>
+
+         <div class="transaction">
+
+            <div class="item">
+                <span>Date</span>
+                <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+                <span>Description</span>
+                <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+                <span>Category</span>
+                <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+                <span>Amount</span>
+                <p>$4,500.00</p>
+            </div>
+
+            <div class="action">
+                <a href="#">Actions</a>
+                <i class="ri-more-2-fill"></i>
+            </div>
+
+        </div>
+
+         <div class="transaction">
+
+            <div class="item">
+                <span>Date</span>
+                <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+                <span>Description</span>
+                <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+                <span>Category</span>
+                <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+                <span>Amount</span>
+                <p>$4,500.00</p>
+            </div>
+
+            <div class="action">
+                <a href="#">Actions</a>
+                <i class="ri-more-2-fill"></i>
+            </div>
+
+        </div>
+
+        <!-- Repeat Transaction -->
+
+    </div>
+    
+
+</section>
+
+
+
+  </div>
+ </div>
+
+ <script src="dashbrd.js"></script>
 </body>
+
 </html>
