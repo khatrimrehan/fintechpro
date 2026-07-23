@@ -1,15 +1,24 @@
 {
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/loginSignup",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/loginSignup",
-      "destination": "/index.html"
-    }
-  ]
+    "redirects": [
+        {
+            "source": "/",
+            "destination": "/loginSignup",
+            "permanent": false
+        },
+        {
+            "source": "/pages/dashboard.html",
+            "destination": "/dashboard",
+            "permanent": false
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/loginSignup",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/dashboard",
+            "destination": "/pages/dashboard.html"
+        }
+    ]
 }
