@@ -146,6 +146,13 @@ body {
 
 /* -2% +108% */
 
+.rtaie{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
 .addtrans {
     display: flex;
     margin-top: auto;
@@ -536,8 +543,7 @@ canvas {
     font-weight: 700;
     color: #222;
 
-    margin-bottom: 1.3rem;
-    margin-left: 10px;
+  
 
 }
 
@@ -813,7 +819,7 @@ canvas {
 
 }
 
-.field {
+.fieldf {
 
     display: flex;
     flex-direction: column;
@@ -821,7 +827,7 @@ canvas {
 
 }
 
-.field label , .setting label {
+.fieldf label , .setting label {
 
     font-size: 19px;
     font-weight: 600;
@@ -831,11 +837,11 @@ canvas {
     color: #1f1f1f;
 
 }
-.field label{
+.fieldf label{
     margin-bottom: 8px;
 
 }
-.field input {
+.fieldf input {
 
     width: 100%;
 
@@ -855,7 +861,7 @@ canvas {
 
 }
 
-.field input:focus {
+.fieldf input:focus {
 
     border-color: #3c8dff;
 
@@ -1236,9 +1242,9 @@ canvas {
 }
 
 .field input,
-.field select{
+.field select,
+.rtaie select{
 
-    height:56px;
 
     border:none;
 
@@ -1257,15 +1263,19 @@ canvas {
     transition:.2s;
 
 }
-
-.field input:focus,
-.field select:focus{
-
-    background:#fff;
-
-    box-shadow:0 0 0 2px #0fbe72;
+.field input,
+.field select{
+    height:56px;
 
 }
+
+.rtaie select{
+    height: 40px;
+    background:#ffffff99;
+
+}
+
+
 
 .row{
 
@@ -1291,4 +1301,19 @@ canvas {
 
     padding:0 18px;
 
+}
+
+#svbtn{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding-block: 18px;
+    font-size: 18px;
+    border-radius: 18px;
+    background-color: #121212;
+    color: #fff;
+
+    i {
+        font-size: 19px;
+    }
 }
