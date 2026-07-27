@@ -631,6 +631,11 @@ canvas {
 
 }
 
+.lastline{
+    display: flex;
+    gap: 3px;
+}
+
 .amount .expense {
 
     color: #dc5d5d;
