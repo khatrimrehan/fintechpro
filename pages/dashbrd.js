@@ -1,18 +1,26 @@
-window.addEventListener("DOMContentLoaded", () => {
-    const dateInput = document.getElementById("date");
-    dateInput.value = new Date().toISOString().split("T")[0];
-});
+const currDate = () => {
+    window.addEventListener("DOMContentLoaded", () => {
+        const dateInput = document.getElementById("date");
+        dateInput.value = new Date().toISOString().split("T")[0];
+    });
+}
+currDate()
+
+const selEct = document.getElementById("curr");
+const applyBtn = document.querySelector('#applybtn')
+const select = document.getElementById("category");
+const overlay = document.querySelector(".overlay")
+const model = document.querySelector(".modal")
+const catagrytrans = document.querySelector("#categorytrans");
+
 
 let transArr = []
 
 let ui = (abcd = "All transaction") => {
     const transList = document.querySelector('.transaction-list')
 
-
     transList.innerHTML = ""
     transArr.forEach(elem => {
-
-
 
         let color;
         let signn;
@@ -25,59 +33,53 @@ let ui = (abcd = "All transaction") => {
             signn = "-";
         }
 
-
         if (abcd === "All transaction" || elem.typee === abcd) {
 
             transList.innerHTML += `
-    <div class="transaction">
+            <div class="transaction">
 
-        <div class="item">
-          <span>Date</span>
-          <p>${elem.date}</p >
-          </div>
+            <div class="item">
+            <span>Date</span>
+            <p>${elem.date}</p >
+            </div>
 
-          <div class="item description">
-          <span>Description</span>
-          <p>${elem.description}</p>
-        </div>
+            <div class="item description">
+            <span>Description</span>
+            <p>${elem.description}</p>
+            </div>
 
-        <div class="item">
-          <span>Category</span>
-          <p>${elem.category}</p>
-          </div>
+            <div class="item">
+            <span>Category</span>
+            <p>${elem.category}</p>
+            </div>
 
-          <div class="item amount">
-          <div class="am">
-          <span>Amount</span>
-          </div>
-          <div class="liones">
-        <div class="sign">
+            <div class="item amount">
+            <div class="am">
+            <span>Amount</span>
+            </div>
+            <div class="liones">
+            <div class="sign">
             <p style="color:${color}">${signn}${elem.currency}</p>
-        </div>
+            </div>
 
-        <div class="amnum">
+            <div class="amnum">
             <p style="color:${color}">${elem.amount}</p>
-        </div>
-        </div>
+            </div>
+            </div>
           
-          </div>
+            </div>
           
-          <div class="action">
-          <a href="#">Actions</a>
-          <i class="ri-more-2-fill"></i>
-          </div>
+            <div class="action">
+            <a href="#">Actions</a>
+            <i class="ri-more-2-fill"></i>
+            </div>
 
-          </div> 
-          `
+            </div> 
+            `
         }
-
-
-
-
     })
 }
 const transcatgry = () => {
-    const catagrytrans = document.querySelector("#categorytrans");
     catagrytrans.addEventListener("change", () => {
         ui(catagrytrans.value);
     });
@@ -86,17 +88,55 @@ transcatgry()
 ui()
 
 
+let totalIncome = 0;
+let totalExpense = 0;
+
+const calc = () => {
+
+    const type = exin.value;
+    const amountsEL = Number(amountf.value);
+
+    if (type === "Income") {
+
+        totalIncome += amountsEL;
+
+        document.querySelectorAll(".amounttotal h1").forEach(amounttotal => {
+            amounttotal.textContent = totalIncome;
+        });
+
+    } else {
+
+        totalExpense += amountsEL;
+
+        document.querySelectorAll(".expensetotal h1").forEach(expensetotal => {
+            expensetotal.textContent = totalExpense;
+        });
+    }
+
+    document.querySelectorAll(".amountcurrent h1").forEach(amountcurrent => {
+        amountcurrent.textContent = totalIncome - totalExpense;
+    });
+}
+
+const styleS = () => {
+    const form = document.querySelector("form");
+
+    overlay.style.position = "relative"
+    overlay.style.background = "transparent"
+    overlay.style.backdropFilter = "none"
+
+    model.style.display = "none"
+    form.reset();
+}
+
 const openClose = () => {
+    const addBtn = document.querySelector("#adbtn")
     const sliDer = document.querySelector(".slider")
     const main = document.querySelector(".main")
     const settings = document.querySelector(".settings")
-    const overlay = document.querySelector(".overlay")
-    const model = document.querySelector(".modal")
     const dashBtn = document.querySelector("#dash")
     const settingBtn = document.querySelector("#setting")
-    const addBtn = document.querySelector("#adbtn")
     const closeD = document.querySelector('.close')
-
 
     dashBtn.addEventListener('click', () => {
         sliDer.style.transform = "translateY(-2%)"
@@ -128,55 +168,10 @@ const openClose = () => {
 }
 openClose()
 
-let totalIncome = 0;
-let totalExpense = 0;
-const selEct = document.getElementById("curr");
-const applyBtn = document.querySelector('#applybtn')
-
-const calculations = () => {
-
-    const type = exin.value;
-    const amountsEL = Number(amountf.value);
-
-    if (type === "Income") {
-
-        totalIncome += amountsEL;
-
-        document.querySelectorAll(".amounttotal h1").forEach(amounttotal => {
-            amounttotal.textContent = totalIncome;
-        });
-
-    } else {
-
-        totalExpense += amountsEL;
-
-        document.querySelectorAll(".expensetotal h1").forEach(expensetotal => {
-            expensetotal.textContent = totalExpense;
-        });
-    }
-
-    document.querySelectorAll(".amountcurrent h1").forEach(amountcurrent => {
-        amountcurrent.textContent = totalIncome - totalExpense;
-    });
-}
-
-const styleS = () => {
-    const form = document.querySelector("form");
-
-
-    overlay.style.position = "relative"
-    overlay.style.background = "transparent"
-    overlay.style.backdropFilter = "none"
-
-    model.style.display = "none"
-    form.reset();
-}
-
 const symboleSelection = () => {
     const totalammountEL = document.querySelector('.totalamount')
     const currentammountEL = document.querySelector('.currentamount')
     const totalexpenseEL = document.querySelector('.totalexpense')
-    const select = document.getElementById("category");
 
     selEct.addEventListener("change", () => {
 
@@ -251,7 +246,7 @@ const formSaveBtn = () => {
         transArr.push(transaction);
         totalTransaction.textContent = transArr.length;
 
-        calculations()
+        calc()
         ui(catagrytrans.value)
         styleS()
         dateInput.value = new Date().toISOString().split("T")[0];
