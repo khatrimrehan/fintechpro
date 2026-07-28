@@ -2,207 +2,207 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../pages/dashbrd.css">
-  <link rel="shortcut icon" href="../assests/fin_logo.png" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
-  <title>Fintech Pro / Dashboard</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="../pages/dashbrd.css">
+ <link rel="shortcut icon" href="../assests/fin_logo.png" type="image/x-icon">
+ <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+ <title>Fintech Pro / Dashboard</title>
 </head>
 
 <body>
 
-  <div class="dashboard">
+ <div class="dashboard">
 
-    <div class="menu">
-      <div class="logo">
-        <div class="icon">
-          <img src="../assests/fin_logo_dark.png" alt="">
-        </div>
-        <div class="logoname">
-          <div class="lineup">FinTrack Pro</div>
-          <div class="linedown">Enterprise Finance</div>
-        </div>
-      </div>
-      <div class="menu-list">
-        <div class="slider"></div>
+  <div class="menu">
+   <div class="logo">
+    <div class="icon">
+     <img src="../assests/fin_logo_dark.png" alt="">
+    </div>
+    <div class="logoname">
+     <div class="lineup">FinTrack Pro</div>
+     <div class="linedown">Enterprise Finance</div>
+    </div>
+   </div>
+   <div class="menu-list">
+    <div class="slider"></div>
 
-        <div class="lone" id="dash">
-          <div class="icn"><i class="ri-dashboard-horizontal-fill"></i></div>
-          <div class="icn-name">Dashboard</div>
-        </div>
+    <div class="lone" id="dash">
+     <div class="icn"><i class="ri-dashboard-horizontal-fill"></i></div>
+     <div class="icn-name">Dashboard</div>
+    </div>
 
-        <div class="lone" id="setting">
-          <div class="icn"><i class="ri-settings-5-fill"></i></div>
-          <div class="icn-name">Settings</div>
-        </div>
-
-
+    <div class="lone" id="setting">
+     <div class="icn"><i class="ri-settings-5-fill"></i></div>
+     <div class="icn-name">Settings</div>
+    </div>
 
 
-      </div>
-      <div class="addtrans" id="adbtn">
-        <div class="plus">
-          <i class="ri-add-line"></i>
-        </div>
-        <div class="addtranstitle">
-          Add Transations
-        </div>
-      </div>
+
+
+   </div>
+   <div class="addtrans" id="adbtn">
+    <div class="plus">
+     <i class="ri-add-line"></i>
+    </div>
+    <div class="addtranstitle">
+     Add Transations
+    </div>
+   </div>
+
+  </div>
+
+  <div class="main">
+   <!-- <img src="../assests/min_bg.jpg" alt=""> -->
+
+
+   <header class="topbar">
+
+    <div class="headtitle">
+     Financial Overview
+    </div>
+
+    <div class="search-box">
+     <i class="ri-search-line"></i>
+     <input id="search" type="text" placeholder="Search transactions...">
+    </div>
+
+    <div class="profile-card">
+
+     <div class="profile">
+      <img src="https://i.pravatar.cc/150?img=12" alt="">
+      <span>RK</span>
+     </div>
+
+     <button>
+      <i class="ri-logout-box-r-line"></i>
+     </button>
 
     </div>
 
-    <div class="main">
-      <!-- <img src="../assests/min_bg.jpg" alt=""> -->
+   </header>
 
+   <div class="dashboard-grid">
 
-      <header class="topbar">
+    <div class="cards">
 
-        <div class="headtitle">
-          Financial Overview
-        </div>
-
-        <div class="search-box">
-          <i class="ri-search-line"></i>
-          <input type="text" placeholder="Search transactions...">
-        </div>
-
-        <div class="profile-card">
-
-          <div class="profile">
-            <img src="https://i.pravatar.cc/150?img=12" alt="">
-            <span>RK</span>
-          </div>
-
-          <button>
-            <i class="ri-logout-box-r-line"></i>
-          </button>
-
-        </div>
-
-      </header>
-
-      <div class="dashboard-grid">
-
-        <div class="cards">
-
-          <div class="card">
-            <div class="head">
-              <div class="icon blue">
-                <i class="ri-wallet-3-line"></i>
-              </div>
-              <span>Current Balance</span>
-            </div>
-
-            <div class="lastline" id="cb">
-              <div class="currentamount">
-                <h1>$</h1>
-              </div>
-              <div class="amountcurrent">
-                <h1>0.00</h1>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="card">
-            <div class="head">
-              <div class="icon green">
-                <i class="ri-arrow-right-up-line"></i>
-              </div>
-              <span>Total Income</span>
-            </div>
-
-
-            <div class="lastline" id="ti">
-              <div class="totalamount">
-                <h1>$</h1>
-              </div>
-              <div class="amounttotal">
-                <h1>0.00</h1>
-              </div>
-            </div>
-
-
-          </div>
-
-          <div class="card">
-            <div class="head">
-              <div class="icon red">
-                <i class="ri-arrow-right-line"></i>
-              </div>
-              <span>Total Expense</span>
-            </div>
-
-
-            <div class="lastline" id="te">
-              <div class="totalexpense">
-                <h1>$</h1>
-              </div>
-              <div class="expensetotal">
-                <h1>0.00</h1>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="card">
-            <div class="head">
-              <div class="icon blue">
-                <i class="ri-bar-chart-box-line"></i>
-              </div>
-              <span>Total Transactions</span>
-            </div>
-
-            <h1>45</h1>
-          </div>
-
-        </div>
-
-        <div class="chart-card">
-
-          <h2>Cash Flow Analysis</h2>
-
-          <div class="legend">
-
-            <div>
-              <span class="dot income"></span>
-              Income
-            </div>
-
-            <div>
-              <span class="dot expense"></span>
-              Expenses
-            </div>
-
-          </div>
-
-          <canvas id="chart"></canvas>
-
-        </div>
-
+     <div class="card">
+      <div class="head">
+       <div class="icon blue">
+        <i class="ri-wallet-3-line"></i>
+       </div>
+       <span>Current Balance</span>
       </div>
 
-      <section class="transactions">
+      <div class="lastline" id="cb">
+       <div class="currentamount">
+        <h1>$</h1>
+       </div>
+       <div class="amountcurrent">
+        <h1>0.00</h1>
+       </div>
+      </div>
 
-        <div class="rtaie">
-          <div>
-            <h2>Recent Transactions</h2>
-          </div>
-          <div>
-            <select id="category">
-              <option value="All transaction" selected>All transaction</option>
-              <option value="Income">Income</option>
-              <option value="Expenses">Expenses</option>
-            </select>
-          </div>
-        </div>
+     </div>
 
-        <div class="transaction-list">
+     <div class="card">
+      <div class="head">
+       <div class="icon green">
+        <i class="ri-arrow-right-up-line"></i>
+       </div>
+       <span>Total Income</span>
+      </div>
 
 
+      <div class="lastline" id="ti">
+       <div class="totalamount">
+        <h1>$</h1>
+       </div>
+       <div class="amounttotal">
+        <h1>0.00</h1>
+       </div>
+      </div>
 
-          <!-- <div class="transaction">
+
+     </div>
+
+     <div class="card">
+      <div class="head">
+       <div class="icon red">
+        <i class="ri-arrow-right-line"></i>
+       </div>
+       <span>Total Expense</span>
+      </div>
+
+
+      <div class="lastline" id="te">
+       <div class="totalexpense">
+        <h1>$</h1>
+       </div>
+       <div class="expensetotal">
+        <h1>0.00</h1>
+       </div>
+      </div>
+
+     </div>
+
+     <div class="card">
+      <div class="head">
+       <div class="icon blue">
+        <i class="ri-bar-chart-box-line"></i>
+       </div>
+       <span>Total Transactions</span>
+      </div>
+
+      <h1 id="totaltrans">0</h1>
+     </div>
+
+    </div>
+
+    <div class="chart-card">
+
+     <h2>Cash Flow Analysis</h2>
+
+     <div class="legend">
+
+      <div>
+       <span class="dot income"></span>
+       Income
+      </div>
+
+      <div>
+       <span class="dot expense"></span>
+       Expenses
+      </div>
+
+     </div>
+
+     <canvas id="chart"></canvas>
+
+    </div>
+
+   </div>
+
+   <section class="transactions">
+
+    <div class="rtaie">
+     <div>
+      <h2>Recent Transactions</h2>
+     </div>
+     <div>
+      <select id="categorytrans">
+       <option value="All transaction" selected>All transaction</option>
+       <option value="Income">Income</option>
+       <option value="Expense">Expense</option>
+      </select>
+     </div>
+    </div>
+
+    <div class="transaction-list">
+
+
+
+     <!-- <div class="transaction">
 
             <div class="item">
               <span>Date</span>
@@ -237,7 +237,7 @@
 
           </div>  -->
 
-          <!-- <div class="transaction">
+     <!-- <div class="transaction">
 
             <div class="item">
               <span>Date</span>
@@ -354,219 +354,219 @@
 
 
 
-        </div>
-
-
-      </section>
-
-
-
     </div>
 
-    <div class="settings">
-      <div class="settingshd">
-        <div class="sthead">Settings</div>
 
-        <div class="profile-card">
+   </section>
 
-          <div class="profile">
-            <img src="https://i.pravatar.cc/150?img=12" alt="">
-            <span>RK</span>
-          </div>
 
-          <button>
-            <i class="ri-logout-box-r-line"></i>
-          </button>
-
-        </div>
-      </div>
-
-      <div class="stdivs">
-        <div class="profile-carddd">
-
-          <h2>Profile Settings</h2>
-
-          <div class="profile-content">
-
-            <div class="avatar-box">
-              <div class="avatar">
-                <i class="ri-user-line"></i>
-              </div>
-            </div>
-
-            <div class="form">
-
-              <div class="fieldf">
-                <label>Full Name</label>
-                <input type="text" placeholder="Avatar Name">
-              </div>
-
-              <div class="fieldf">
-                <label>Email Address</label>
-                <input type="email" placeholder="Email Address.com">
-              </div>
-
-              <button id="savebtn">Save Changes</button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="preferences-card">
-
-          <h2>Preferences</h2>
-
-          <div class="setting">
-
-            <label>Default Currency</label>
-
-            <select id="curr">
-              <option value="$" selected>$ USD</option>
-              <option value="€">€ EUR</option>
-              <option value="£">£ GBP</option>
-              <option value="₹">₹ INR</option>
-            </select>
-
-          </div>
-
-          <div class="setting">
-
-            <label>Theme (Dark/Light)</label>
-
-            <label class="switch">
-              <input type="checkbox">
-              <span class="sliderss"></span>
-            </label>
-
-          </div>
-
-          <button class="apply-btn" id="applybtn">
-            Apply Preferences
-          </button>
-
-        </div>
-      </div>
-
-    </div>
 
   </div>
 
-  <div class="overlay">
+  <div class="settings">
+   <div class="settingshd">
+    <div class="sthead">Settings</div>
 
-    <div class="modal">
+    <div class="profile-card">
 
-      <div class="top">
+     <div class="profile">
+      <img src="https://i.pravatar.cc/150?img=12" alt="">
+      <span>RK</span>
+     </div>
 
-        <div class="heading">
+     <button>
+      <i class="ri-logout-box-r-line"></i>
+     </button>
 
-          <div class="logo2">
-            <i class="ri-money-dollar-circle-line"></i>
-          </div>
+    </div>
+   </div>
 
-          <div class="title">
-            <h2>Add Transaction</h2>
-          </div>
+   <div class="stdivs">
+    <div class="profile-carddd">
 
-        </div>
+     <h2>Profile Settings</h2>
 
-        <button class="close" id="close">
-          <i class="ri-close-line"></i>
-        </button>
+     <div class="profile-content">
+
+      <div class="avatar-box">
+       <div class="avatar">
+        <i class="ri-user-line"></i>
+       </div>
+      </div>
+
+      <div class="form">
+
+       <div class="fieldf">
+        <label>Full Name</label>
+        <input type="text" placeholder="Avatar Name">
+       </div>
+
+       <div class="fieldf">
+        <label>Email Address</label>
+        <input type="email" placeholder="Email Address.com">
+       </div>
+
+       <button id="savebtn">Save Changes</button>
 
       </div>
 
-      <form>
-
-        <div class="field">
-
-          <label>TYPE</label>
-
-          <select id="exin">
-
-            <option value="Expense">Expense</option>
-            <option value="Income">Income</option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label>DESCRIPTION</label>
-
-          <input id="desc" type="text" placeholder="e.g. Amazon, Salary, Coffee">
-
-        </div>
-
-        <div class="row">
-
-          <div class="field">
-
-            <label>AMOUNT</label>
-
-            <div class="icon-input">
-
-
-              <input id="amountf" type="number" placeholder="0.00">
-
-            </div>
-
-          </div>
-
-          <div class="field">
-
-            <label>DATE</label>
-
-            <div class="icon-input">
-
-              <input type="date" id="date">
-
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="field">
-
-          <label>CATEGORY</label>
-
-          <select id="catagry">
-
-            <option value="Shopping" selected>Shopping</option>
-
-            <option value="Food">Food</option>
-
-            <option value="Salary">Salary</option>
-
-            <option value="Transport">Transport</option>
-
-            <option value="Bills">Bills</option>
-
-            <option value="Others">Others</option>
-
-          </select>
-
-        </div>
-
-        <button class="save" id="svbtn">
-
-          <i class="ri-checkbox-circle-fill"></i>
-
-          Save Transaction
-
-        </button>
-
-      </form>
+     </div>
 
     </div>
 
+    <div class="preferences-card">
+
+     <h2>Preferences</h2>
+
+     <div class="setting">
+
+      <label>Default Currency</label>
+
+      <select id="curr">
+       <option value="$" selected>$ USD</option>
+       <option value="€">€ EUR</option>
+       <option value="£">£ GBP</option>
+       <option value="₹">₹ INR</option>
+      </select>
+
+     </div>
+
+     <div class="setting">
+
+      <label>Theme (Dark/Light)</label>
+
+      <label class="switch">
+       <input type="checkbox">
+       <span class="sliderss"></span>
+      </label>
+
+     </div>
+
+     <button class="apply-btn" id="applybtn">
+      Apply Preferences
+     </button>
+
+    </div>
+   </div>
+
   </div>
 
-  <script src="../pages/dashbrd.js"></script>
+ </div>
+
+ <div class="overlay">
+
+  <div class="modal">
+
+   <div class="top">
+
+    <div class="heading">
+
+     <div class="logo2">
+      <i class="ri-money-dollar-circle-line"></i>
+     </div>
+
+     <div class="title">
+      <h2>Add Transaction</h2>
+     </div>
+
+    </div>
+
+    <button class="close" id="close">
+     <i class="ri-close-line"></i>
+    </button>
+
+   </div>
+
+   <form>
+
+    <div class="field">
+
+     <label>TYPE</label>
+
+     <select id="exin">
+
+      <option value="Expense">Expense</option>
+      <option value="Income">Income</option>
+
+     </select>
+
+    </div>
+
+    <div class="field">
+
+     <label>DESCRIPTION</label>
+
+     <input id="desc" type="text" placeholder="e.g. Amazon, Salary, Coffee">
+
+    </div>
+
+    <div class="row">
+
+     <div class="field">
+
+      <label>AMOUNT</label>
+
+      <div class="icon-input">
+
+
+       <input id="amountf" type="number" placeholder="0.00">
+
+      </div>
+
+     </div>
+
+     <div class="field">
+
+      <label>DATE</label>
+
+      <div class="icon-input">
+
+       <input type="date" id="date">
+
+
+      </div>
+
+     </div>
+
+    </div>
+
+    <div class="field">
+
+     <label>CATEGORY</label>
+
+     <select id="catagry">
+
+      <option value="Shopping" selected>Shopping</option>
+
+      <option value="Food">Food</option>
+
+      <option value="Salary">Salary</option>
+
+      <option value="Transport">Transport</option>
+
+      <option value="Bills">Bills</option>
+
+      <option value="Others">Others</option>
+
+     </select>
+
+    </div>
+
+    <button class="save" id="svbtn">
+
+     <i class="ri-checkbox-circle-fill"></i>
+
+     Save Transaction
+
+    </button>
+
+   </form>
+
+  </div>
+
+ </div>
+
+ <script src="../pages/dashbrd.js"></script>
 </body>
 
 </html>

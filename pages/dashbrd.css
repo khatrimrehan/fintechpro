@@ -575,7 +575,9 @@ canvas {
 .transaction:last-child {
     margin-bottom: 50px;
 }
-
+#totaltrans{
+    color: #121212c2;
+}
 .mess{
     display: flex;
     align-items: center;
