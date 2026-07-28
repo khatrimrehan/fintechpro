@@ -416,9 +416,8 @@ body {
 .card h1 {
 
     margin-top: 5px;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
-    color: #111;
 
 }
 
@@ -577,6 +576,13 @@ canvas {
     margin-bottom: 50px;
 }
 
+.mess{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
 .transaction {
 
     display: grid;
@@ -625,6 +631,12 @@ canvas {
 
 }
 
+.liones{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
 .description {
 
     padding-left: 1rem;
@@ -633,7 +645,7 @@ canvas {
 
 .lastline{
     display: flex;
-    gap: 3px;
+    gap: 1px;
 }
 
 .amount .expense {
@@ -641,7 +653,15 @@ canvas {
     color: #dc5d5d;
 
 }
-
+#cb{
+    color: #3770d3;
+}
+#ti{
+    color: #4db460;
+}
+#te{
+    color: #eb5454;
+}
 .action {
 
     display: flex;
@@ -865,7 +885,9 @@ canvas {
     transition: .25s;
 
 }
-
+.icon-input{
+    width: 70%;
+}
 .fieldf input:focus {
 
     border-color: #3c8dff;
@@ -1259,7 +1281,7 @@ canvas {
 
     border-radius:16px;
 
-    padding:0 18px;
+    padding:0 16px;
 
     font-size:16px;
 
@@ -1288,7 +1310,7 @@ canvas {
 
     grid-template-columns:1fr 1fr;
 
-    gap:16px;
+    gap:2px;
 
 }
 

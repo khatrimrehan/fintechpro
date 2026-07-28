@@ -94,13 +94,13 @@
               <span>Current Balance</span>
             </div>
 
-            <div class="lastline">
+            <div class="lastline" id="cb">
               <div class="currentamount">
-              <h1>$</h1>
-            </div>
-            <div class="amountcurrent">
-              <h1>0</h1>
-            </div>
+                <h1>$</h1>
+              </div>
+              <div class="amountcurrent">
+                <h1>0.00</h1>
+              </div>
             </div>
 
           </div>
@@ -114,13 +114,13 @@
             </div>
 
 
-               <div class="lastline">
+            <div class="lastline" id="ti">
               <div class="totalamount">
-              <h1>$</h1>
-            </div>
-            <div class="amounttotal">
-              <h1>0</h1>
-            </div>
+                <h1>$</h1>
+              </div>
+              <div class="amounttotal">
+                <h1>0.00</h1>
+              </div>
             </div>
 
 
@@ -134,16 +134,16 @@
               <span>Total Expense</span>
             </div>
 
-            
-            <div class="lastline">
+
+            <div class="lastline" id="te">
               <div class="totalexpense">
-              <h1>$</h1>
+                <h1>$</h1>
+              </div>
+              <div class="expensetotal">
+                <h1>0.00</h1>
+              </div>
             </div>
-            <div class="expensetotal">
-              <h1>0</h1>
-            </div>
-            </div>
-            
+
           </div>
 
           <div class="card">
@@ -200,6 +200,71 @@
 
         <div class="transaction-list">
 
+
+
+          <!-- <div class="transaction">
+
+            <div class="item">
+              <span>Date</span>
+              <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+              <span>Description</span>
+              <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+              <span>Category</span>
+              <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+              <div class="am">
+                <span>Amount</span>
+              </div>
+              <div class="liones"> --
+                <div class="sign"><p>$</p></div>
+                <div class="amnum"><p>4,500.00</p></div>
+              </div>
+              
+            </div>
+
+            <div class="action">
+              <a href="#">Actions</a>
+              <i class="ri-more-2-fill"></i>
+            </div>
+
+          </div>  -->
+
+          <!-- <div class="transaction">
+
+            <div class="item">
+              <span>Date</span>
+              <p>08-11, 2023</p>
+            </div>
+
+            <div class="item description">
+              <span>Description</span>
+              <p>Add your proportion...</p>
+            </div>
+
+            <div class="item">
+              <span>Category</span>
+              <p>Expenses</p>
+            </div>
+
+            <div class="item amount">
+              <span>Amount</span>
+              <p>$4,500.00</p>
+            </div>
+
+            <div class="action">
+              <a href="#">Actions</a>
+              <i class="ri-more-2-fill"></i>
+            </div>
+
+          </div>
           <div class="transaction">
 
             <div class="item">
@@ -257,34 +322,6 @@
             </div>
 
           </div>
-          <div class="transaction">
-
-            <div class="item">
-              <span>Date</span>
-              <p>08-11, 2023</p>
-            </div>
-
-            <div class="item description">
-              <span>Description</span>
-              <p>Add your proportion...</p>
-            </div>
-
-            <div class="item">
-              <span>Category</span>
-              <p>Expenses</p>
-            </div>
-
-            <div class="item amount">
-              <span>Amount</span>
-              <p>$4,500.00</p>
-            </div>
-
-            <div class="action">
-              <a href="#">Actions</a>
-              <i class="ri-more-2-fill"></i>
-            </div>
-
-          </div>
 
           <div class="transaction">
 
@@ -313,38 +350,9 @@
               <i class="ri-more-2-fill"></i>
             </div>
 
-          </div>
+          </div> -->
 
-          <div class="transaction">
 
-            <div class="item">
-              <span>Date</span>
-              <p>08-11, 2023</p>
-            </div>
-
-            <div class="item description">
-              <span>Description</span>
-              <p>Add your proportion...</p>
-            </div>
-
-            <div class="item">
-              <span>Category</span>
-              <p>Expenses</p>
-            </div>
-
-            <div class="item amount">
-              <span>Amount</span>
-              <p>$4,500.00</p>
-            </div>
-
-            <div class="action">
-              <a href="#">Actions</a>
-              <i class="ri-more-2-fill"></i>
-            </div>
-
-          </div>
-
-          <!-- Repeat Transaction -->
 
         </div>
 
@@ -382,7 +390,7 @@
 
             <div class="avatar-box">
               <div class="avatar">
-
+                <i class="ri-user-line"></i>
               </div>
             </div>
 
@@ -475,10 +483,10 @@
 
           <label>TYPE</label>
 
-          <select>
+          <select id="exin">
 
-            <option>Expense</option>
-            <option>Income</option>
+            <option value="Expense">Expense</option>
+            <option value="Income">Income</option>
 
           </select>
 
@@ -488,7 +496,7 @@
 
           <label>DESCRIPTION</label>
 
-          <input type="text" placeholder="e.g. Amazon, Salary, Coffee">
+          <input id="desc" type="text" placeholder="e.g. Amazon, Salary, Coffee">
 
         </div>
 
@@ -500,9 +508,8 @@
 
             <div class="icon-input">
 
-              <span>$</span>
 
-              <input type="number" placeholder="0.00">
+              <input id="amountf" type="number" placeholder="0.00">
 
             </div>
 
@@ -514,7 +521,7 @@
 
             <div class="icon-input">
 
-              <input type="date">
+              <input type="date" id="date">
 
 
             </div>
@@ -527,19 +534,19 @@
 
           <label>CATEGORY</label>
 
-          <select>
+          <select id="catagry">
 
-            <option>Select a category</option>
+            <option value="Shopping" selected>Shopping</option>
 
-            <option>Food</option>
+            <option value="Food">Food</option>
 
-            <option>Shopping</option>
+            <option value="Salary">Salary</option>
 
-            <option>Salary</option>
+            <option value="Transport">Transport</option>
 
-            <option>Transport</option>
+            <option value="Bills">Bills</option>
 
-            <option>Bills</option>
+            <option value="Others">Others</option>
 
           </select>
 
