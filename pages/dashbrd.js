@@ -87,8 +87,8 @@ let ui = () => {
 
     })
 }
- 
- 
+
+
 ui()
 
 
@@ -136,21 +136,17 @@ selEct.addEventListener("change", () => {
 
     applyBtn.addEventListener('click', () => {
 
-        let signn;
-        let color;
 
-        if (color = "#22c55e") {
-            signn = "+"
-        }
-        else {
-            signn = "-"
-        }
+
 
 
         const currSym = selEct.value;
-        document.querySelectorAll(".sign p").forEach(sign => {
-            sign.textContent = signn+currSym; 
+        transArr.forEach((elem) => {
+            elem.currency = currSym;
         });
+
+        ui();
+
 
         totalammountEL.innerHTML = `
         <h1>${currSym}</h1>
@@ -242,7 +238,7 @@ savBtn.addEventListener('click', (e) => {
     };
 
     transArr.push(transaction);
-
+    console.log("Current type:", exin.value);
 
     ui()
     styleS()
