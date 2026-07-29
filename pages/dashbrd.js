@@ -6,6 +6,9 @@ const currDate = () => {
 }
 currDate()
 
+
+let totalIncome = 0;
+let totalExpense = 0;
 const selEct = document.getElementById("curr");
 const applyBtn = document.querySelector('#applybtn')
 const select = document.getElementById("category");
@@ -88,8 +91,7 @@ transcatgry()
 ui()
 
 
-let totalIncome = 0;
-let totalExpense = 0;
+
 
 const calc = () => {
 
@@ -168,10 +170,16 @@ const openClose = () => {
 }
 openClose()
 
-const symboleSelection = () => {
+const symboleandthemeSel = () => {
     const totalammountEL = document.querySelector('.totalamount')
     const currentammountEL = document.querySelector('.currentamount')
     const totalexpenseEL = document.querySelector('.totalexpense')
+
+    const toggle = document.getElementById("themeToggle");
+
+    const main = document.querySelector(".main")
+
+
 
     selEct.addEventListener("change", () => {
 
@@ -193,10 +201,20 @@ const symboleSelection = () => {
             totalexpenseEL.innerHTML = `
             <h1>${currSym}</h1>
             `
+
+
         });
     })
+
+
+    applyBtn.addEventListener('click', () => {
+        document.body.classList.toggle("dark", toggle.checked); 
+    })
+
+
+
 }
-symboleSelection()
+symboleandthemeSel()
 
 const savealertBtn = () => {
     applyBtn.addEventListener("click", () => {
@@ -247,6 +265,7 @@ const formSaveBtn = () => {
         totalTransaction.textContent = transArr.length;
 
         calc()
+        updateChart();
         ui(catagrytrans.value)
         styleS()
         dateInput.value = new Date().toISOString().split("T")[0];
@@ -288,3 +307,46 @@ const searchFN = () => {
 
 }
 searchFN()
+
+let cashChart;
+
+const chart = () => {
+    const ctx = document.getElementById("cashChart");
+
+    cashChart = new Chart(ctx, { 
+        type: "bar",
+        data: {
+            labels: ["Income", "Expense"],
+            datasets: [{
+                data: [0, 0],
+                backgroundColor: ["#4ade80", "#f87171"],
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+};
+
+chart();
+
+function updateChart() {
+    cashChart.data.datasets[0].data = [
+        totalIncome,
+        totalExpense
+    ];
+
+    cashChart.update();
+}
