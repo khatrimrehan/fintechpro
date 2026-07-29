@@ -208,7 +208,7 @@ const symboleandthemeSel = () => {
 
 
     applyBtn.addEventListener('click', () => {
-        document.body.classList.toggle("dark", toggle.checked); 
+        document.body.classList.toggle("dark", toggle.checked);
     })
 
 
@@ -313,7 +313,7 @@ let cashChart;
 const chart = () => {
     const ctx = document.getElementById("cashChart");
 
-    cashChart = new Chart(ctx, { 
+    cashChart = new Chart(ctx, {
         type: "bar",
         data: {
             labels: ["Income", "Expense"],
@@ -350,3 +350,70 @@ function updateChart() {
 
     cashChart.update();
 }
+
+const profile = document.querySelector('.profile')
+const stName = document.querySelector('#stName')
+const saveChange = document.querySelector('#savebtn')
+const yrName = document.querySelector('#yourName')
+
+const defProfile = () => {
+    profile.innerHTML = `
+                <i class="ri-user-line"></i>`
+    stName.innerHTML = `
+                <i class="ri-user-line"></i>`    
+}
+defProfile()
+
+const settingsName = () => {
+    
+    yrName.addEventListener('keyup', () => {
+
+        saveChange.addEventListener('click', () => {
+            let nameSV = yrName.value
+            if (nameSV.trim() === "") {
+                return
+            }
+            
+            profile.innerHTML = `
+            <i class="ri-user-line"></i>
+            <span>${nameSV}</span>
+            `
+            stName.innerHTML = `
+            <i class="ri-user-line"></i>
+            <span>${nameSV}</span>
+            `
+
+        })
+    })
+}
+settingsName()
+
+const saveChalert = () => {
+    saveChange.addEventListener('click', () => {
+        let nameSV = yrName.value
+        if (nameSV.trim() === "") {
+            return
+        }
+
+        alert("Are U Sure Want To SaveChanges")
+    })
+}
+saveChalert()
+
+
+
+
+
+const logOut = () => {
+    const logoutMain = document.getElementById("logout-main");
+const logoutSettings = document.getElementById("logout-settings");
+
+
+logoutMain.addEventListener("click", () => {
+    window.location.href = "/";
+});
+logoutSettings.addEventListener("click", () => {
+    window.location.href = "/";
+});
+}
+logOut()

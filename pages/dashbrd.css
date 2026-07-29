@@ -331,11 +331,13 @@ body {
 
 }
 
-.profile img {
-    width: 34px;
+.profile i{
+    /* width: 34px;
     height: 34px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: cover; */
+
+    font-size: 24px;
 }
 
 .profile span {
@@ -871,7 +873,7 @@ canvas {
 }
 
 .avatar-box {
-    margin-bottom: 47px;
+    margin-bottom: 7px;
 }
 
 .avatar {
@@ -923,7 +925,7 @@ canvas {
 
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 45px;
 
 
 }
