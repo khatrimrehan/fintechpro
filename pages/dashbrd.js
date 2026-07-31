@@ -17,7 +17,7 @@ const model = document.querySelector(".modal")
 const catagrytrans = document.querySelector("#categorytrans");
 
 
-let transArr = []
+let transArr = JSON.parse(localStorage.getItem('transactions')) || []
 
 let ui = (abcd = "All transaction") => {
     const transList = document.querySelector('.transaction-list')
@@ -89,8 +89,6 @@ const transcatgry = () => {
 }
 transcatgry()
 ui()
-
-
 
 
 const calc = () => {
@@ -179,36 +177,63 @@ const symboleandthemeSel = () => {
 
     const main = document.querySelector(".main")
 
+    const savedCurr = localStorage.getItem("currency")
 
+    if (savedCurr) {
+        selEct.value = savedCurr
 
-    selEct.addEventListener("change", () => {
-
-        applyBtn.addEventListener('click', () => {
-
-            const currSym = selEct.value;
-            transArr.forEach((elem) => {
-                elem.currency = currSym;
-            });
-
-            ui(catagrytrans.value);
-
-            totalammountEL.innerHTML = `
-            <h1>${currSym}</h1>
-            `
-            currentammountEL.innerHTML = `
-            <h1>${currSym}</h1>
-            `
-            totalexpenseEL.innerHTML = `
-            <h1>${currSym}</h1>
-            `
-
-
+        transArr.forEach((elem) => {
+            elem.currency = savedCurr;
         });
-    })
 
+        ui(catagrytrans.value);
+
+        totalammountEL.innerHTML = `
+            <h1>${savedCurr}</h1>
+            `
+        currentammountEL.innerHTML = `
+            <h1>${savedCurr}</h1>
+            `
+        totalexpenseEL.innerHTML = `
+            <h1>${savedCurr}</h1>
+            `
+    }
+
+    applyBtn.addEventListener('click', () => {
+
+        const currSym = selEct.value;
+        localStorage.setItem("currency", currSym);
+
+        console.log(currSym);
+
+
+        transArr.forEach((elem) => {
+            elem.currency = currSym;
+        });
+
+        ui(catagrytrans.value);
+
+        totalammountEL.innerHTML = `
+            <h1>${currSym}</h1>
+            `
+        currentammountEL.innerHTML = `
+            <h1>${currSym}</h1>
+            `
+        totalexpenseEL.innerHTML = `
+            <h1>${currSym}</h1>
+            `
+    });
+
+
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme === "dark") {
+        toggle.checked = true,
+            document.body.classList.add("dark")
+    }
 
     applyBtn.addEventListener('click', () => {
         document.body.classList.toggle("dark", toggle.checked);
+        localStorage.setItem("theme", toggle.checked ? "dark" : "light")
     })
 
 
@@ -261,7 +286,9 @@ const formSaveBtn = () => {
             currency: selEct.value
         };
 
+
         transArr.push(transaction);
+        localStorage.setItem('transactions', JSON.stringify(transArr))
         totalTransaction.textContent = transArr.length;
 
         calc()
@@ -308,6 +335,9 @@ const searchFN = () => {
 }
 searchFN()
 
+let totallIncome = Number(localStorage.getItem("totalIncome")) || 0;
+let totallExpense = Number(localStorage.getItem("totalExpense")) || 0;
+
 let cashChart;
 
 const chart = () => {
@@ -318,7 +348,7 @@ const chart = () => {
         data: {
             labels: ["Income", "Expense"],
             datasets: [{
-                data: [0, 0],
+                data: [totallIncome, totallExpense],
                 backgroundColor: ["#4ade80", "#f87171"],
                 borderRadius: 8
             }]
@@ -343,6 +373,10 @@ const chart = () => {
 chart();
 
 function updateChart() {
+    localStorage.setItem("totalIncome", totalIncome);
+    localStorage.setItem("totalExpense", totalExpense);
+
+
     cashChart.data.datasets[0].data = [
         totalIncome,
         totalExpense
@@ -360,29 +394,42 @@ const defProfile = () => {
     profile.innerHTML = `
                 <i class="ri-user-line"></i>`
     stName.innerHTML = `
-                <i class="ri-user-line"></i>`    
+                <i class="ri-user-line"></i>`
 }
 defProfile()
 
 const settingsName = () => {
-    
+
+    const pfName = localStorage.getItem("name")
+    console.log(pfName);
+    yrName.value = pfName
+     profile.innerHTML = `
+            <i class="ri-user-line"></i>
+            <span>${pfName}</span>
+            `
+            stName.innerHTML = `
+            <i class="ri-user-line"></i>
+            <span>${pfName}</span>
+            `
+
     yrName.addEventListener('keyup', () => {
 
         saveChange.addEventListener('click', () => {
             let nameSV = yrName.value
+            localStorage.setItem("name", yrName.value)
+            
+
             if (nameSV.trim() === "") {
                 return
             }
-            
             profile.innerHTML = `
             <i class="ri-user-line"></i>
             <span>${nameSV}</span>
             `
             stName.innerHTML = `
             <i class="ri-user-line"></i>
-            <span>${nameSV}</span>
-            `
-
+            <span>${nameSV}</span>`
+           
         })
     })
 }
@@ -400,20 +447,35 @@ const saveChalert = () => {
 }
 saveChalert()
 
-
-
-
-
 const logOut = () => {
     const logoutMain = document.getElementById("logout-main");
-const logoutSettings = document.getElementById("logout-settings");
+    const logoutSettings = document.getElementById("logout-settings");
 
 
-logoutMain.addEventListener("click", () => {
-    window.location.href = "/";
-});
-logoutSettings.addEventListener("click", () => {
-    window.location.href = "/";
-});
+    logoutMain.addEventListener("click", () => {
+        window.location.href = "/";
+    });
+    logoutSettings.addEventListener("click", () => {
+        window.location.href = "/";
+    });
 }
 logOut()
+
+
+// LOCALSTORAGE
+
+// let arr = [
+
+//     {
+//         name: "rehan",
+//         age: 20
+//     }
+// ]
+
+
+
+// localStorage.setItem("name", JSON.stringify(arr))
+
+// let data = JSON.parse(localStorage.getItem("name"))
+
+// console.log(data);
