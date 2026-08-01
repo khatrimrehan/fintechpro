@@ -1,3 +1,5 @@
+
+
 const currDate = () => {
     window.addEventListener("DOMContentLoaded", () => {
         const dateInput = document.getElementById("date");
@@ -6,10 +8,6 @@ const currDate = () => {
 }
 currDate()
 
-
-
-
-
 const selEct = document.getElementById("curr");
 const applyBtn = document.querySelector('#applybtn')
 const select = document.getElementById("category");
@@ -17,8 +15,24 @@ const overlay = document.querySelector(".overlay")
 const model = document.querySelector(".modal")
 const catagrytrans = document.querySelector("#categorytrans");
 
+const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-let transArr = JSON.parse(localStorage.getItem('transactions')) || []
+const users = JSON.parse(localStorage.getItem("users")) || [];
+
+const currentUser = users.find(u => u.id === loggedUser.id);
+
+const totalTransaction = document.querySelector("#totaltrans");
+totalTransaction.textContent = currentUser.transactions.length;
+
+const index = users.findIndex(u => u.id === currentUser.id);
+users[index] = currentUser;
+localStorage.setItem("users", JSON.stringify(users));
+totalTransaction.textContent = currentUser.transactions.length;
+
+
+let transArr = currentUser.transactions || [];
+
+
 
 let ui = (abcd = "All transaction") => {
     const transList = document.querySelector('.transaction-list')
@@ -91,23 +105,18 @@ const transcatgry = () => {
 transcatgry()
 ui()
 
-let totalIncome = Number(localStorage.getItem('income')) || 0;
-let totalExpense = Number(localStorage.getItem('expense')) || 0;
+let totalIncome = currentUser.income || 0;
+let totalExpense = currentUser.expense || 0;
 
 const calc = () => {
 
     const type = exin.value;
     const amountsEL = Number(amountf.value);
 
-    let savedIncome = Number(localStorage.getItem('income'))
-    console.log(savedIncome);
     document.querySelectorAll(".amounttotal h1").forEach(amounttotal => {
-        amounttotal.textContent = savedIncome;
-
+        amounttotal.textContent = totalIncome;
     });
 
-    let savedExpense = Number(localStorage.getItem('expense'))
-    console.log(savedIncome);
 
     document.querySelectorAll(".expensetotal h1").forEach(expensetotal => {
         expensetotal.textContent = totalExpense;
@@ -119,7 +128,12 @@ const calc = () => {
 
         document.querySelectorAll(".amounttotal h1").forEach(amounttotal => {
             amounttotal.textContent = totalIncome;
-            localStorage.setItem('income', totalIncome)
+            currentUser.income = totalIncome;
+
+            const index = users.findIndex(u => u.id === currentUser.id);
+            users[index] = currentUser;
+
+            localStorage.setItem("users", JSON.stringify(users));
         });
 
     } else {
@@ -128,7 +142,12 @@ const calc = () => {
 
         document.querySelectorAll(".expensetotal h1").forEach(expensetotal => {
             expensetotal.textContent = totalExpense;
-            localStorage.setItem('expense', totalExpense)
+            currentUser.expense = totalExpense;
+
+            const index = users.findIndex(u => u.id === currentUser.id);
+            users[index] = currentUser;
+
+            localStorage.setItem("users", JSON.stringify(users));
         });
     }
 
@@ -137,6 +156,9 @@ const calc = () => {
     });
 }
 calc()
+
+
+
 
 const styleS = () => {
     const form = document.querySelector("form");
@@ -197,7 +219,7 @@ const symboleandthemeSel = () => {
 
     const main = document.querySelector(".main")
 
-    const savedCurr = localStorage.getItem("currency")
+    const savedCurr = currentUser.currency;
 
     if (savedCurr) {
         selEct.value = savedCurr
@@ -222,7 +244,15 @@ const symboleandthemeSel = () => {
     applyBtn.addEventListener('click', () => {
 
         const currSym = selEct.value;
-        localStorage.setItem("currency", currSym);
+        currentUser.currency = currSym;
+
+        const index = users.findIndex(
+            u => u.id === currentUser.id
+        );
+
+        users[index] = currentUser;
+
+        localStorage.setItem("users", JSON.stringify(users));
 
         console.log(currSym);
 
@@ -306,11 +336,17 @@ const formSaveBtn = () => {
             currency: selEct.value
         };
 
-
+        currentUser.transactions.push(transaction);
         transArr.push(transaction);
-        localStorage.setItem('transactions', JSON.stringify(transArr))
 
 
+        currentUser.transactions = transArr;
+
+        const index = users.findIndex(u => u.id === currentUser.id);
+
+        users[index] = currentUser;
+
+        localStorage.setItem("users", JSON.stringify(users));
 
         calc()
         updateChart();
@@ -416,7 +452,7 @@ defProfile()
 
 const settingsName = () => {
 
-    const pfName = localStorage.getItem("name")
+    const pfName = currentUser.nameVL;
     console.log(pfName);
     yrName.value = pfName
     profile.innerHTML = `
@@ -432,7 +468,18 @@ const settingsName = () => {
 
         saveChange.addEventListener('click', () => {
             let nameSV = yrName.value
-            localStorage.setItem("name", yrName.value)
+            currentUser.nameVL = yrName.value;
+
+            const index = users.findIndex(
+                u => u.id === currentUser.id
+            );
+
+            users[index] = currentUser;
+
+            localStorage.setItem(
+                "users",
+                JSON.stringify(users)
+            );
 
 
             if (nameSV.trim() === "") {
@@ -467,31 +514,14 @@ const logOut = () => {
     const logoutMain = document.getElementById("logout-main");
     const logoutSettings = document.getElementById("logout-settings");
 
-
     logoutMain.addEventListener("click", () => {
         window.location.href = "/";
     });
     logoutSettings.addEventListener("click", () => {
         window.location.href = "/";
     });
+
+
 }
 logOut()
 
-
-// LOCALSTORAGE
-
-// let arr = [
-
-//     {
-//         name: "rehan",
-//         age: 20
-//     }
-// ]
-
-
-
-// localStorage.setItem("name", JSON.stringify(arr))
-
-// let data = JSON.parse(localStorage.getItem("name"))
-
-// console.log(data);
