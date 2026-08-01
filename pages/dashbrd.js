@@ -7,8 +7,9 @@ const currDate = () => {
 currDate()
 
 
-let totalIncome = 0;
-let totalExpense = 0;
+
+
+
 const selEct = document.getElementById("curr");
 const applyBtn = document.querySelector('#applybtn')
 const select = document.getElementById("category");
@@ -90,11 +91,27 @@ const transcatgry = () => {
 transcatgry()
 ui()
 
+let totalIncome = Number(localStorage.getItem('income')) || 0;
+let totalExpense = Number(localStorage.getItem('expense')) || 0;
 
 const calc = () => {
 
     const type = exin.value;
     const amountsEL = Number(amountf.value);
+
+    let savedIncome = Number(localStorage.getItem('income'))
+    console.log(savedIncome);
+    document.querySelectorAll(".amounttotal h1").forEach(amounttotal => {
+        amounttotal.textContent = savedIncome;
+
+    });
+
+    let savedExpense = Number(localStorage.getItem('expense'))
+    console.log(savedIncome);
+
+    document.querySelectorAll(".expensetotal h1").forEach(expensetotal => {
+        expensetotal.textContent = totalExpense;
+    });
 
     if (type === "Income") {
 
@@ -102,6 +119,7 @@ const calc = () => {
 
         document.querySelectorAll(".amounttotal h1").forEach(amounttotal => {
             amounttotal.textContent = totalIncome;
+            localStorage.setItem('income', totalIncome)
         });
 
     } else {
@@ -110,6 +128,7 @@ const calc = () => {
 
         document.querySelectorAll(".expensetotal h1").forEach(expensetotal => {
             expensetotal.textContent = totalExpense;
+            localStorage.setItem('expense', totalExpense)
         });
     }
 
@@ -117,6 +136,7 @@ const calc = () => {
         amountcurrent.textContent = totalIncome - totalExpense;
     });
 }
+calc()
 
 const styleS = () => {
     const form = document.querySelector("form");
@@ -289,7 +309,8 @@ const formSaveBtn = () => {
 
         transArr.push(transaction);
         localStorage.setItem('transactions', JSON.stringify(transArr))
-        totalTransaction.textContent = transArr.length;
+
+
 
         calc()
         updateChart();
@@ -335,8 +356,6 @@ const searchFN = () => {
 }
 searchFN()
 
-let totallIncome = Number(localStorage.getItem("totalIncome")) || 0;
-let totallExpense = Number(localStorage.getItem("totalExpense")) || 0;
 
 let cashChart;
 
@@ -348,7 +367,7 @@ const chart = () => {
         data: {
             labels: ["Income", "Expense"],
             datasets: [{
-                data: [totallIncome, totallExpense],
+                data: [totalIncome, totalExpense],
                 backgroundColor: ["#4ade80", "#f87171"],
                 borderRadius: 8
             }]
@@ -373,9 +392,6 @@ const chart = () => {
 chart();
 
 function updateChart() {
-    localStorage.setItem("totalIncome", totalIncome);
-    localStorage.setItem("totalExpense", totalExpense);
-
 
     cashChart.data.datasets[0].data = [
         totalIncome,
@@ -403,11 +419,11 @@ const settingsName = () => {
     const pfName = localStorage.getItem("name")
     console.log(pfName);
     yrName.value = pfName
-     profile.innerHTML = `
+    profile.innerHTML = `
             <i class="ri-user-line"></i>
             <span>${pfName}</span>
             `
-            stName.innerHTML = `
+    stName.innerHTML = `
             <i class="ri-user-line"></i>
             <span>${pfName}</span>
             `
@@ -417,7 +433,7 @@ const settingsName = () => {
         saveChange.addEventListener('click', () => {
             let nameSV = yrName.value
             localStorage.setItem("name", yrName.value)
-            
+
 
             if (nameSV.trim() === "") {
                 return
@@ -429,7 +445,7 @@ const settingsName = () => {
             stName.innerHTML = `
             <i class="ri-user-line"></i>
             <span>${nameSV}</span>`
-           
+
         })
     })
 }
