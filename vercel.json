@@ -17,7 +17,7 @@
             "destination": "/index.html"
         },
         {
-            "source": "/dashboard",
+            "source": "/",
             "destination": "/pages/dashboard.html"
         }
     ]
