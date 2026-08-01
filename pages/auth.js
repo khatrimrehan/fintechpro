@@ -109,7 +109,7 @@ const logIn = () => {
                 id: user.id
             }));
 
-            window.location.href = "/pages/dashboard.html";
+            window.location.href = "../pages/dashboard.html";
 
         }
 
