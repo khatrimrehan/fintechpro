@@ -19,7 +19,6 @@ const overlay = document.querySelector(".overlay")
 const model = document.querySelector(".modal")
 const catagrytrans = document.querySelector("#categorytrans");
 
-const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 const users = JSON.parse(localStorage.getItem("users")) || [];
 
