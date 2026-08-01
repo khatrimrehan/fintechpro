@@ -1,13 +1,13 @@
 {
     "redirects": [
         {
-            "source": "/",
+            "source": "/loginSignup",
             "destination": "/loginSignup",
             "permanent": false
         },
         {
             "source": "/pages/dashboard.html",
-            "destination": "/dashboard",
+            "destination": "/",
             "permanent": false
         }
     ],
