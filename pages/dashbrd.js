@@ -1,4 +1,8 @@
+const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
+if (!loggedUser) {
+    window.location.replace("/");
+}
 
 const currDate = () => {
     window.addEventListener("DOMContentLoaded", () => {
@@ -515,10 +519,12 @@ const logOut = () => {
     const logoutSettings = document.getElementById("logout-settings");
 
     logoutMain.addEventListener("click", () => {
-        window.location.href = "/";
+        localStorage.removeItem("loggedInUser");
+window.location.replace("/");
     });
     logoutSettings.addEventListener("click", () => {
-        window.location.href = "/";
+        localStorage.removeItem("loggedInUser");
+window.location.replace("/");
     });
 
 
